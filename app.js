@@ -10,8 +10,10 @@ const main = async (place) => {
     const location = await getLocation(place)
     const weather = await getWeather(location)
     const temp = Math.floor((weather.temperature -32) * 5/9)
-    const data = await promisifiedFiglet("Weather")
-    console.log(data)
+    const data = await promisifiedFiglet("Weather", {
+        font: 'coinstak'
+    })
+    console.log(data.rainbow)
     console.log(`The temperature in ${location.name.green} is ${colors.red(temp)}°C and the probability of rain is ${weather.precipProbability}`)
 }
 
